@@ -4,10 +4,11 @@ import { sha256DigToHex } from "../utils/cryptography.js";
 import { logError } from "../utils/error-logger.js";
 import express from "express";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
 
 const router = express.Router();
 
-export const post_aadhaarOtpRequestHandler = async (res, req) => {
+export const post_aadhaarOtpRequestHandler = async (req, res) => {
     try {
         const { country, govt_uid } = req.body;
 
@@ -21,7 +22,7 @@ export const post_aadhaarOtpRequestHandler = async (res, req) => {
     }
 };
 
-export const post_aadhaarOtpVerifyHandler = async (res, req) => {
+export const post_aadhaarOtpVerifyHandler = async (req, res) => {
     try {
         const { govt_uid, otp } = req.body;
 
@@ -39,6 +40,7 @@ export const post_aadhaarOtpVerifyHandler = async (res, req) => {
         res.json({
             success: true,
             status: "OTP_VERIF_SUCCESS",
+            payload: aadhaarDb[Math.floor(Math.random() * aadhaarDb.length)],
         });
     } catch (e) {
         logError(e, res);
@@ -94,7 +96,9 @@ export const post_signInHandler = async (req, res) => {
     try {
         let { email, password } = req.body;
 
+        // console.log(req.body);
         password = sha256DigToHex(password);
+        // console.log(password);
 
         const userObj = await UserModel.findOne({ email, password });
 
@@ -118,6 +122,7 @@ export const post_signInHandler = async (req, res) => {
             success: true,
             status: "SIGN_IN_SUCCESS",
             jwt: sessionToken,
+            user: userObj,
         });
     } catch (e) {
         logError(e, res);

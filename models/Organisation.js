@@ -39,7 +39,7 @@ export const OrganisationModel = mongoose.model(
 
         header_img: {
             type: Buffer,
-            required: true,
+            default: null,
         },
 
         password: {

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/faceid", async (req, res) => {
     try {
-        const response = await fetch("http://localhost:7000/verifypfp", {
+        const response = await fetch("http://localhost:8000/verifypfp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -33,7 +33,7 @@ router.get("/faceid", async (req, res) => {
 
 router.get("/proctor", async (req, res) => {
     try {
-        const response = await fetch("http://localhost:7000/proctor", {
+        const response = await fetch("http://localhost:8000/proctor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
