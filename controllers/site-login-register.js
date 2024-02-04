@@ -14,6 +14,8 @@ export const post_aadhaarOtpRequestHandler = async (res, req) => {
         // const otp = await sendSmsVerificationRequest(govt_uid);
 
         // addRedisKey(govt_uid, otp);
+
+        res.json({ success: true });
     } catch (e) {
         logError(e, res);
     }
@@ -115,7 +117,7 @@ export const post_signInHandler = async (req, res) => {
         res.json({
             success: true,
             status: "SIGN_IN_SUCCESS",
-            session_jwt: sessionToken,
+            jwt: sessionToken,
         });
     } catch (e) {
         logError(e, res);

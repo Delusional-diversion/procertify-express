@@ -3,6 +3,7 @@ import {
     post_aadhaarOtpVerifyHandler,
     post_aadhaarOtpRequestHandler,
     post_signUpCreatePfHandler,
+    post_signInHandler,
 } from "./controllers/site-login-register.js";
 import {
     get_catHandler,
@@ -12,6 +13,7 @@ import {
     get_compsHandler,
     get_userCertHandler,
     get_userCertsHandler,
+    post_buyCertHandler,
 } from "./controllers/site-certifications.js";
 import { userAuthHandler } from "./middlewares/secure-auth.js";
 import {

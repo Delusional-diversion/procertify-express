@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import { OrganisationModel } from "./Organisation";
-import { CertCategoryModel } from "./CertificationCategory";
+import { OrganisationModel } from "./Organisation.js";
+import { CertCategoryModel } from "./CertificationCategory.js";
 
-export const QnASchema = new Schema({
+export const QnASchema = new mongoose.Schema({
     class: {
         type: String,
         enum: ["obj-mcq", /* "subjective", "code", */ "obj-saq"],
@@ -53,7 +53,7 @@ export const CertificationModel = mongoose.model(
 
         header_image: {
             type: Buffer,
-            required: true,
+            default: null,
         },
 
         cert_description: {

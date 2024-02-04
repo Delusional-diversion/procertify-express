@@ -23,7 +23,7 @@ const CouponSchema = new mongoose.Schema(
     }
 );
 
-export const OrganisationModel = new mongoose.model(
+export const OrganisationModel = mongoose.model(
     "Organisation",
     new mongoose.Schema({
         name: {
@@ -38,7 +38,7 @@ export const OrganisationModel = new mongoose.model(
         },
 
         header_img: {
-            type: String,
+            type: Buffer,
             required: true,
         },
 
@@ -48,6 +48,7 @@ export const OrganisationModel = new mongoose.model(
         },
 
         is_active: {
+            type: Boolean,
             default: false,
         },
 

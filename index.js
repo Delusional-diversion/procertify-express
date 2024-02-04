@@ -6,6 +6,7 @@ import cors from "cors";
 import express from "express";
 import siteRouter from "./site-router.js";
 import dashRouter from "./dash-router.js";
+import opencvRouter from "./proctor-router.js";
 
 const app = express();
 
@@ -40,6 +41,7 @@ configureMdb();
 
 app.use("/site", siteRouter);
 app.use("/b2b", dashRouter);
+app.use("/opencv", opencvRouter);
 
 app.listen(process.env.PORT || 7000, () => {
     console.log(`[✓] Server is running on PORT ${process.env.PORT}`);

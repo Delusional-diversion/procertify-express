@@ -1,8 +1,8 @@
-import { CertificationModel } from "../models/Certification";
-import { ExamSessionModel } from "../models/ExamSession";
-import { formatDate } from "../utils/datetime";
-import { logError } from "../utils/error-logger";
-import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { CertificationModel } from "../models/Certification.js";
+import { ExamSessionModel } from "../models/ExamSession.js";
+import { formatDate } from "../utils/datetime.js";
+import { logError } from "../utils/error-logger.js";
+import { PDFDocument, StandardFonts } from "pdf-lib";
 
 export const post_certificationAttemptHandler = async (req, res) => {
     try {

@@ -2,14 +2,6 @@ import mongoose from "mongoose";
 import crypto from "crypto";
 import { QnASchema } from "./Certification.js";
 
-const UserResponseSchema = new mongoose.Schema(
-    {
-        type: String,
-        default: null,
-    },
-    { timestamps: true }
-);
-
 export const ExamSessionModel = mongoose.model(
     "ExamSession",
     new mongoose.Schema({
@@ -37,7 +29,7 @@ export const ExamSessionModel = mongoose.model(
         qna_set: [QnASchema],
 
         // ensure equal
-        user_response_set: [UserResponseSchema],
+        user_response_set: [String],
 
         result: {
             type: Number,

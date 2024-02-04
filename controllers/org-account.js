@@ -1,8 +1,7 @@
-import { UserModel } from "../models/User.js";
-import { sha256DigToHex } from "../utils/cryptography.js";
+import { OrganisationModel } from "../models/Organisation.js";
 import { logError } from "../utils/error-logger.js";
 
-export const put_userCredHandler = async (req, res) => {
+export const get_b2bOrgCredHandler = async (req, res) => {
     try {
         let { email, password } = req.body;
 
@@ -10,7 +9,7 @@ export const put_userCredHandler = async (req, res) => {
 
         res.json({
             success: true,
-            payload: await UserModel.findOneAndUpdate(
+            payload: await OrganisationModel.findOneAndUpdate(
                 { _id: res.locals.USEROBJ._id },
                 { email, password },
                 { new: true }
@@ -21,11 +20,11 @@ export const put_userCredHandler = async (req, res) => {
     }
 };
 
-export const get_whoAmIHandler = async (req, res) => {
+export const get_b2bWhoAmIHandler = async (req, res) => {
     try {
         res.json({
             success: true,
-            payload: res.locals.USEROBJ,
+            payload: res.locals.ORGOBJ,
         });
     } catch (e) {
         logError(e, res);

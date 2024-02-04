@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { UserModel } from "../models/User";
-import { OrganisationModel } from "../models/Organisation";
+import { UserModel } from "../models/User.js";
+import { OrganisationModel } from "../models/Organisation.js";
 
 export const userAuthHandler = async (req, res, next) => {
     try {

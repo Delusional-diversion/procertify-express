@@ -1,10 +1,10 @@
 import ms from "ms";
-import { CertificationModel } from "../models/Certification";
-import { CertCategoryModel } from "../models/CertificationCategory";
-import { ExamSessionModel } from "../models/ExamSession";
-import { logError } from "../utils/error-logger";
-import { OrganisationModel } from "../models/Organisation";
-import { UserModel } from "../models/User";
+import { CertificationModel } from "../models/Certification.js";
+import { CertCategoryModel } from "../models/CertificationCategory.js";
+import { ExamSessionModel } from "../models/ExamSession.js";
+import { logError } from "../utils/error-logger.js";
+import { OrganisationModel } from "../models/Organisation.js";
+import { UserModel } from "../models/User.js";
 
 export const get_catsHandler = async (req, res) => {
     try {

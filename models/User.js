@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { CertificationModel } from "./Certification.js";
-import { ExamSession } from "./ExamSession.js";
+import { ExamSessionModel } from "./ExamSession.js";
 import { OrganisationModel } from "./Organisation.js";
 
 /* const CountrySchema = new mongoose.Schema({
@@ -80,7 +80,7 @@ const UserSchema = new mongoose.Schema({
 
         phone: {
             type: String,
-            required: type,
+            required: true,
         },
     },
 
